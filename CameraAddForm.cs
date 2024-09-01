@@ -32,6 +32,7 @@ namespace I_Surveillance
             }
             else
             {
+                Variables.HandleInput("Camera", cameraiptxt.Text.Trim(), camerausernametxt.Text.Trim(), camerapasstxt.Text.Trim(), cameraimagetxt.Text.Trim());
                 Variables.cameraAddForm.Close();
                 Variables.checkedbuttons.Remove(Variables.buttonclicked);
             }

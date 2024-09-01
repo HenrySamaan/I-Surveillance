@@ -23,7 +23,33 @@ namespace I_Surveillance
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Task.Run(() => progressbarvalueupdate());
+            Variables.LoadDevicesIntoDataGridView();
+        }
+        private void progressbarvalueupdate()
+        {
 
+            while (true)
+            {
+                int count = Math.Max(0, Variables.count); 
+
+                int percentage = Variables.maxcount > 0 ? (int)((double)count / Variables.maxcount * 100) : 0;
+
+                percentage = Math.Min(Math.Max(percentage, 0), 100);
+
+                if (progressBar1.InvokeRequired)
+                {
+                    progressBar1.BeginInvoke(new Action(() =>
+                    {
+                        progressBar1.Value = percentage;
+                        dataGridView1.DataSource = Variables.dataTable;
+                    }));
+                }
+                else
+                {
+                    progressBar1.Value = percentage;
+                }
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

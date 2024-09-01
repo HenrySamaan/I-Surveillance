@@ -28,6 +28,7 @@ namespace I_Surveillance
             }
             else
             {
+                Variables.HandleInput("Router", routeriptxt.Text.Trim(), routerusernametxt.Text.Trim(), routerpasswordtxt.Text.Trim(), "");
                 Variables.addRouterForm.Close();
                 Variables.checkedbuttons.Remove(Variables.buttonclicked);
             }

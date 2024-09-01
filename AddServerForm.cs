@@ -29,6 +29,7 @@ namespace I_Surveillance
             }
             else
             {
+                Variables.HandleInput("Server", serveriptxt.Text.Trim(), $@"{serverdomaintxt.Text.Trim()}\{serverusernametxt.Text.Trim()}", serverpasswordtxt.Text.Trim(), "");
                 Variables.addServerForm.Close();
                 Variables.checkedbuttons.Remove(Variables.buttonclicked);
             }

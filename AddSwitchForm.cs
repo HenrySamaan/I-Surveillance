@@ -28,6 +28,7 @@ namespace I_Surveillance
             }
             else
             {
+                Variables.HandleInput("Switch", switchiptxt.Text.Trim(), switchusernametxt.Text.Trim(), switchpasswordtxt.Text.Trim(), "");
                 Variables.addSwitchForm.Close();
                 Variables.checkedbuttons.Remove(Variables.buttonclicked);
             }

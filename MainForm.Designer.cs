@@ -34,10 +34,6 @@ namespace I_Surveillance
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.DeviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.addcamera = new System.Windows.Forms.Button();
             this.addserver = new System.Windows.Forms.Button();
@@ -47,6 +43,10 @@ namespace I_Surveillance
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.Monitoring = new System.Windows.Forms.TabPage();
+            this.DeviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.Devices.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -133,30 +133,6 @@ namespace I_Surveillance
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1053, 549);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // DeviceType
-            // 
-            this.DeviceType.HeaderText = "Device Type";
-            this.DeviceType.Name = "DeviceType";
-            this.DeviceType.ReadOnly = true;
-            // 
-            // IP
-            // 
-            this.IP.HeaderText = "IP";
-            this.IP.Name = "IP";
-            this.IP.ReadOnly = true;
-            // 
-            // Username
-            // 
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
             // 
             // tableLayoutPanel3
             // 
@@ -260,6 +236,34 @@ namespace I_Surveillance
             this.Monitoring.Text = "Monitoring";
             this.Monitoring.UseVisualStyleBackColor = true;
             // 
+            // DeviceType
+            // 
+            this.DeviceType.DataPropertyName = "DeviceType";
+            this.DeviceType.HeaderText = "Device Type";
+            this.DeviceType.Name = "DeviceType";
+            this.DeviceType.ReadOnly = true;
+            // 
+            // IP
+            // 
+            this.IP.DataPropertyName = "IP";
+            this.IP.HeaderText = "IP";
+            this.IP.Name = "IP";
+            this.IP.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -293,14 +297,14 @@ namespace I_Surveillance
         private System.Windows.Forms.Button addcamera;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DeviceType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button addserver;
         private System.Windows.Forms.Button addswitch;
         private System.Windows.Forms.Button addrouter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeviceType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
     }
 }
 
