@@ -221,5 +221,32 @@ namespace I_Surveillance
             }
         }
 
+        public static bool AuthenticateUser(string username, string password)
+        {
+            string query = "SELECT COUNT(1) FROM [ISurveillance].[dbo].[Users] WHERE [Username] = @Username AND [Password] = @Password";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    command.Parameters.AddWithValue("@Password", password);
+
+                    try
+                    {
+                        connection.Open();
+
+                        int count = (int)command.ExecuteScalar();
+
+                        return count > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}");
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }
