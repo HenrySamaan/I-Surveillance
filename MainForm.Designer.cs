@@ -34,6 +34,10 @@ namespace I_Surveillance
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DeviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.addcamera = new System.Windows.Forms.Button();
             this.addserver = new System.Windows.Forms.Button();
@@ -43,10 +47,6 @@ namespace I_Surveillance
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.Monitoring = new System.Windows.Forms.TabPage();
-            this.DeviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.Devices.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -134,6 +134,34 @@ namespace I_Surveillance
             this.dataGridView1.Size = new System.Drawing.Size(1053, 549);
             this.dataGridView1.TabIndex = 0;
             // 
+            // DeviceType
+            // 
+            this.DeviceType.DataPropertyName = "DeviceType";
+            this.DeviceType.HeaderText = "Device Type";
+            this.DeviceType.Name = "DeviceType";
+            this.DeviceType.ReadOnly = true;
+            // 
+            // IP
+            // 
+            this.IP.DataPropertyName = "IP";
+            this.IP.HeaderText = "IP";
+            this.IP.Name = "IP";
+            this.IP.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
@@ -155,7 +183,8 @@ namespace I_Surveillance
             // 
             // addcamera
             // 
-            this.addcamera.Location = new System.Drawing.Point(3, 3);
+            this.addcamera.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addcamera.Location = new System.Drawing.Point(58, 12);
             this.addcamera.Name = "addcamera";
             this.addcamera.Size = new System.Drawing.Size(147, 25);
             this.addcamera.TabIndex = 7;
@@ -165,7 +194,8 @@ namespace I_Surveillance
             // 
             // addserver
             // 
-            this.addserver.Location = new System.Drawing.Point(267, 3);
+            this.addserver.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addserver.Location = new System.Drawing.Point(324, 12);
             this.addserver.Name = "addserver";
             this.addserver.Size = new System.Drawing.Size(144, 25);
             this.addserver.TabIndex = 8;
@@ -175,7 +205,8 @@ namespace I_Surveillance
             // 
             // addswitch
             // 
-            this.addswitch.Location = new System.Drawing.Point(531, 3);
+            this.addswitch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addswitch.Location = new System.Drawing.Point(590, 12);
             this.addswitch.Name = "addswitch";
             this.addswitch.Size = new System.Drawing.Size(140, 25);
             this.addswitch.TabIndex = 9;
@@ -185,7 +216,8 @@ namespace I_Surveillance
             // 
             // addrouter
             // 
-            this.addrouter.Location = new System.Drawing.Point(795, 3);
+            this.addrouter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addrouter.Location = new System.Drawing.Point(853, 12);
             this.addrouter.Name = "addrouter";
             this.addrouter.Size = new System.Drawing.Size(144, 25);
             this.addrouter.TabIndex = 10;
@@ -235,34 +267,6 @@ namespace I_Surveillance
             this.Monitoring.TabIndex = 1;
             this.Monitoring.Text = "Monitoring";
             this.Monitoring.UseVisualStyleBackColor = true;
-            // 
-            // DeviceType
-            // 
-            this.DeviceType.DataPropertyName = "DeviceType";
-            this.DeviceType.HeaderText = "Device Type";
-            this.DeviceType.Name = "DeviceType";
-            this.DeviceType.ReadOnly = true;
-            // 
-            // IP
-            // 
-            this.IP.DataPropertyName = "IP";
-            this.IP.HeaderText = "IP";
-            this.IP.Name = "IP";
-            this.IP.ReadOnly = true;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Password";
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
             // 
             // MainForm
             // 

@@ -85,8 +85,36 @@ namespace I_Surveillance
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CreateUser createUser = new CreateUser();
+            if (tableLayoutPanel1.ColumnCount == 2)
+                return;
+            this.Width = this.Width * 2;
+
+            // Increase the column count of the TableLayoutPanel
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Clear();
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F)); // First column takes 50% of the space
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F)); // Second column takes 50% of the space
+
+            // Create and configure the Signup GroupBox
+            signupGroupBox = new GroupBox();
+            signupGroupBox.Text = "Signup";
+            signupGroupBox.Dock = DockStyle.Fill;
+
+            // Create and show the CreateUser form inside the Signup GroupBox
+            CreateUser createUser = new CreateUser(this);
+            createUser.TopLevel = false;  // Make CreateUser a non-top-level form
+            createUser.FormBorderStyle = FormBorderStyle.None; // Remove the border
+            createUser.Dock = DockStyle.Fill; // Fill the GroupBox
+            signupGroupBox.Controls.Add(createUser);
             createUser.Show();
+
+            // Add the Signup GroupBox to the second cell of the TableLayoutPanel
+            tableLayoutPanel1.Controls.Add(signupGroupBox, 1, 0);
+        }
+
+        private void signupGroupBox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

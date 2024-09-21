@@ -61,36 +61,39 @@ namespace I_Surveillance
 
         private static void addDevices(string type, string ip, string username, string password, string cameralink)
         {
-            string query = deviceString(type);
-            query = query.Replace("@ip", ip)
-                         .Replace("@username", username)
-                         .Replace("@password", password);
+            if (PingIpAddress(ip))
+            {
+                string query = deviceString(type);
+                query = query.Replace("@ip", ip)
+                             .Replace("@username", username)
+                             .Replace("@password", password);
 
-            if (query.ToLower().Contains("cameralink"))
-            {
-                query = query.Replace("@cameralink", cameralink);
-            }
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
+                if (query.ToLower().Contains("cameralink"))
                 {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    query = query.Replace("@cameralink", cameralink);
+                }
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
                     {
-                        command.ExecuteNonQuery();
-                        LoadDevicesIntoDataGridView();
+                        connection.Open();
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                            LoadDevicesIntoDataGridView();
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    if (connection.State == System.Data.ConnectionState.Open)
+                    catch (Exception ex)
                     {
-                        connection.Close();
+                        MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        if (connection.State == System.Data.ConnectionState.Open)
+                        {
+                            connection.Close();
+                        }
                     }
                 }
             }
@@ -162,10 +165,8 @@ namespace I_Surveillance
                 for (int i = startIpLastOctet; i <= endIpLastOctet; i++)
                 {
                     string ip = baseIp + i;
-                    if (PingIpAddress(ip))
-                    {
                         Task.Run(() => addDevices(type, ip, username, password, cameralink));
-                    }
+
                     count++;
                 }
                 count = 0;
