@@ -29,15 +29,15 @@ namespace I_Surveillance
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Servers");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cameras");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Switches");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Routers");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Network Devices", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Servers");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Cameras");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Switches");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Routers");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Network Devices", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9});
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Devices = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -89,6 +89,10 @@ namespace I_Surveillance
             this.SwitchGUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RouterGUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CameraGUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Configuration = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.Devices.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -109,12 +113,15 @@ namespace I_Surveillance
             this.devicelistgrpbx.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.devicelistdtgview)).BeginInit();
+            this.Configuration.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.Devices);
             this.tabControl1.Controls.Add(this.Monitoring);
+            this.tabControl1.Controls.Add(this.Configuration);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -553,23 +560,23 @@ namespace I_Surveillance
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode1.ForeColor = System.Drawing.Color.Navy;
-            treeNode1.Name = "serversnode";
-            treeNode1.Text = "Servers";
-            treeNode2.ForeColor = System.Drawing.Color.Navy;
-            treeNode2.Name = "camerasnode";
-            treeNode2.Text = "Cameras";
-            treeNode3.ForeColor = System.Drawing.Color.Navy;
-            treeNode3.Name = "switchnode";
-            treeNode3.Text = "Switches";
-            treeNode4.ForeColor = System.Drawing.Color.Navy;
-            treeNode4.Name = "routersnode";
-            treeNode4.Text = "Routers";
-            treeNode5.ForeColor = System.Drawing.Color.Blue;
-            treeNode5.Name = "Node0";
-            treeNode5.Text = "Network Devices";
+            treeNode6.ForeColor = System.Drawing.Color.Navy;
+            treeNode6.Name = "serversnode";
+            treeNode6.Text = "Servers";
+            treeNode7.ForeColor = System.Drawing.Color.Navy;
+            treeNode7.Name = "camerasnode";
+            treeNode7.Text = "Cameras";
+            treeNode8.ForeColor = System.Drawing.Color.Navy;
+            treeNode8.Name = "switchnode";
+            treeNode8.Text = "Switches";
+            treeNode9.ForeColor = System.Drawing.Color.Navy;
+            treeNode9.Name = "routersnode";
+            treeNode9.Text = "Routers";
+            treeNode10.ForeColor = System.Drawing.Color.Blue;
+            treeNode10.Name = "Node0";
+            treeNode10.Text = "Network Devices";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode10});
             this.treeView1.Size = new System.Drawing.Size(177, 645);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -687,6 +694,53 @@ namespace I_Surveillance
             this.CameraGUID.Name = "CameraGUID";
             this.CameraGUID.Visible = false;
             // 
+            // Configuration
+            // 
+            this.Configuration.Controls.Add(this.tableLayoutPanel8);
+            this.Configuration.Location = new System.Drawing.Point(4, 24);
+            this.Configuration.Name = "Configuration";
+            this.Configuration.Padding = new System.Windows.Forms.Padding(3);
+            this.Configuration.Size = new System.Drawing.Size(1075, 679);
+            this.Configuration.TabIndex = 2;
+            this.Configuration.Text = "Configuration";
+            this.Configuration.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.groupBox2, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1069, 673);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(528, 667);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SQL Configuration";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(537, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(529, 667);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "IIS Configuration";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -719,6 +773,8 @@ namespace I_Surveillance
             this.devicelistgrpbx.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.devicelistdtgview)).EndInit();
+            this.Configuration.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -776,6 +832,10 @@ namespace I_Surveillance
         private System.Windows.Forms.DataGridViewTextBoxColumn SwitchGUID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RouterGUID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CameraGUID;
+        private System.Windows.Forms.TabPage Configuration;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

@@ -15,16 +15,71 @@ namespace I_Surveillance
     {
         bool remembered = false;
         bool ischecked = false;
+        public static List<string> Creds = new List<string>();
+
         public UserLoginForm()
         {
             InitializeComponent();
-            savecredchkbx.Checked = CheckOrCreateRememberMeRegistryKey();
+            if (CheckOrCreateRememberMeRegistryKey())
+            {
+                RetrieveCreds();
+                savecredchkbx.Checked = true;
+                usernametxt.Text = String.IsNullOrEmpty(Creds[0]) ? " " : Creds[0];
+                passwordtxt.Text = String.IsNullOrEmpty(Creds[1]) ? " " : Creds[1];
+            }
+        }
+
+
+        public static List<string> RetrieveCreds()
+        {
+            string keyPath = @"Software\ISurveillance\Settings";
+            string rememberMe = "RememberMe";
+
+            // Open the registry key
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(keyPath))
+            {
+                if (key != null)
+                {
+                    // Check if the boolean value is "True"
+                    if (key.GetValue(rememberMe)?.ToString() == "true")
+                    {
+                        string username = key.GetValue("Username")?.ToString();
+                        string password = key.GetValue("Password")?.ToString();
+
+                        // Add credentials to the list
+                        Creds.Add(username);
+                        Creds.Add(password);
+
+                        return Creds;
+                    }
+                }
+            }
+
+            return Creds;
+        }
+
+        public static void StoreCreds(string username, string password)
+        {
+            string keyPath = @"Software\ISurveillance\Settings";
+
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(keyPath))
+            {
+                if (key != null)
+                {
+                    key.SetValue("Username", username);
+                    key.SetValue("Password", password);
+                }
+            }
         }
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
             if(Variables.AuthenticateUser(usernametxt.Text.Trim(), passwordtxt.Text.Trim()) && Variables.UserPrivilege != "None")
             {
+                if (savecredchkbx.Checked)
+                {
+                    StoreCreds(usernametxt.Text.Trim(), passwordtxt.Text.Trim());
+                }
                 this.Hide();
 
                 MainForm mainForm = new MainForm();
@@ -32,7 +87,9 @@ namespace I_Surveillance
             }
             else
             {
-                errorhandlinglabel.Text = "Username or Password are incorrect";
+                //errorhandlinglabel.Text = "Username or Password are incorrect";
+                usernametxt.ForeColor = System.Drawing.Color.Red;
+                passwordtxt.ForeColor = System.Drawing.Color.Red;
             }
         }
 

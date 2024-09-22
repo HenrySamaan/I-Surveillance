@@ -44,6 +44,7 @@ namespace I_Surveillance
             this.signupGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.logingroupbox.SuspendLayout();
+            this.signupGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginbtn
@@ -131,10 +132,9 @@ namespace I_Surveillance
             // 
             // errorhandlinglabel
             // 
-            this.errorhandlinglabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorhandlinglabel.AutoSize = true;
             this.errorhandlinglabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.errorhandlinglabel.Location = new System.Drawing.Point(285, 311);
+            this.errorhandlinglabel.Location = new System.Drawing.Point(6, 302);
             this.errorhandlinglabel.Name = "errorhandlinglabel";
             this.errorhandlinglabel.Size = new System.Drawing.Size(0, 21);
             this.errorhandlinglabel.TabIndex = 17;
@@ -157,7 +157,6 @@ namespace I_Surveillance
             // 
             this.logingroupbox.Controls.Add(this.signupGroupBox);
             this.logingroupbox.Controls.Add(this.label3);
-            this.logingroupbox.Controls.Add(this.errorhandlinglabel);
             this.logingroupbox.Controls.Add(this.usernametxt);
             this.logingroupbox.Controls.Add(this.linkLabel1);
             this.logingroupbox.Controls.Add(this.passwordtxt);
@@ -176,6 +175,7 @@ namespace I_Surveillance
             // 
             // signupGroupBox
             // 
+            this.signupGroupBox.Controls.Add(this.errorhandlinglabel);
             this.signupGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.signupGroupBox.Location = new System.Drawing.Point(3, 19);
             this.signupGroupBox.Name = "signupGroupBox";
@@ -197,6 +197,8 @@ namespace I_Surveillance
             this.tableLayoutPanel1.ResumeLayout(false);
             this.logingroupbox.ResumeLayout(false);
             this.logingroupbox.PerformLayout();
+            this.signupGroupBox.ResumeLayout(false);
+            this.signupGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
