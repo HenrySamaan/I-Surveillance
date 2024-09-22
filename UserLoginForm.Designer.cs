@@ -193,7 +193,7 @@ namespace I_Surveillance
             this.ClientSize = new System.Drawing.Size(304, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UserLoginForm";
-            this.Text = "UserLoginForm";
+            this.Text = "I-Surveillance Login";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.logingroupbox.ResumeLayout(false);
             this.logingroupbox.PerformLayout();

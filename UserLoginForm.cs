@@ -23,7 +23,7 @@ namespace I_Surveillance
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
-            if(Variables.AuthenticateUser(usernametxt.Text.Trim(), passwordtxt.Text.Trim()))
+            if(Variables.AuthenticateUser(usernametxt.Text.Trim(), passwordtxt.Text.Trim()) && Variables.UserPrivilege != "None")
             {
                 this.Hide();
 

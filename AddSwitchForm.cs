@@ -19,6 +19,7 @@ namespace I_Surveillance
 
         private void addswitchbutton_Click(object sender, EventArgs e)
         {
+            Variables.EmptyStrings.Add(devicenametxt.Text);
             Variables.EmptyStrings.Add(switchiptxt.Text);
             Variables.EmptyStrings.Add(switchusernametxt.Text);
             Variables.EmptyStrings.Add(switchpasswordtxt.Text);
@@ -28,7 +29,7 @@ namespace I_Surveillance
             }
             else
             {
-                Variables.HandleInput("Switch", switchiptxt.Text.Trim(), switchusernametxt.Text.Trim(), switchpasswordtxt.Text.Trim(), "");
+                Variables.HandleInput("Switch", switchiptxt.Text.Trim(), switchusernametxt.Text.Trim(), switchpasswordtxt.Text.Trim(), "", devicenametxt.Text.Trim());
                 Variables.addSwitchForm.Close();
                 Variables.checkedbuttons.Remove(Variables.buttonclicked);
             }

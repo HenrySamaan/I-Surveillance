@@ -36,11 +36,13 @@ namespace I_Surveillance
             this.label1 = new System.Windows.Forms.Label();
             this.switchusernametxt = new System.Windows.Forms.TextBox();
             this.switchiptxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.devicenametxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // addswitchbutton
             // 
-            this.addswitchbutton.Location = new System.Drawing.Point(12, 155);
+            this.addswitchbutton.Location = new System.Drawing.Point(12, 195);
             this.addswitchbutton.Name = "addswitchbutton";
             this.addswitchbutton.Size = new System.Drawing.Size(504, 23);
             this.addswitchbutton.TabIndex = 33;
@@ -51,7 +53,7 @@ namespace I_Surveillance
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 109);
+            this.label2.Location = new System.Drawing.Point(12, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 15);
             this.label2.TabIndex = 32;
@@ -59,7 +61,7 @@ namespace I_Surveillance
             // 
             // switchpasswordtxt
             // 
-            this.switchpasswordtxt.Location = new System.Drawing.Point(156, 109);
+            this.switchpasswordtxt.Location = new System.Drawing.Point(156, 149);
             this.switchpasswordtxt.Name = "switchpasswordtxt";
             this.switchpasswordtxt.Size = new System.Drawing.Size(360, 23);
             this.switchpasswordtxt.TabIndex = 30;
@@ -67,7 +69,7 @@ namespace I_Surveillance
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 67);
+            this.label8.Location = new System.Drawing.Point(12, 107);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 15);
             this.label8.TabIndex = 28;
@@ -76,7 +78,7 @@ namespace I_Surveillance
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(12, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 15);
             this.label1.TabIndex = 27;
@@ -84,24 +86,42 @@ namespace I_Surveillance
             // 
             // switchusernametxt
             // 
-            this.switchusernametxt.Location = new System.Drawing.Point(156, 67);
+            this.switchusernametxt.Location = new System.Drawing.Point(156, 107);
             this.switchusernametxt.Name = "switchusernametxt";
             this.switchusernametxt.Size = new System.Drawing.Size(360, 23);
             this.switchusernametxt.TabIndex = 26;
             // 
             // switchiptxt
             // 
-            this.switchiptxt.Location = new System.Drawing.Point(156, 20);
+            this.switchiptxt.Location = new System.Drawing.Point(156, 60);
             this.switchiptxt.Name = "switchiptxt";
             this.switchiptxt.Size = new System.Drawing.Size(360, 23);
             this.switchiptxt.TabIndex = 25;
             this.switchiptxt.Text = "XXX.XXX.XXX.XXX OR XXX.XXX.XXX.XXX-XXX.XXX.XXX.XXX";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 15);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Device Name";
+            // 
+            // devicenametxt
+            // 
+            this.devicenametxt.Location = new System.Drawing.Point(156, 17);
+            this.devicenametxt.Name = "devicenametxt";
+            this.devicenametxt.Size = new System.Drawing.Size(360, 23);
+            this.devicenametxt.TabIndex = 43;
+            // 
             // AddSwitchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 193);
+            this.ClientSize = new System.Drawing.Size(531, 230);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.devicenametxt);
             this.Controls.Add(this.addswitchbutton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.switchpasswordtxt);
@@ -127,5 +147,7 @@ namespace I_Surveillance
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox switchusernametxt;
         private System.Windows.Forms.TextBox switchiptxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox devicenametxt;
     }
 }

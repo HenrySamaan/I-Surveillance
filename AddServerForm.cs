@@ -19,6 +19,7 @@ namespace I_Surveillance
 
         private void addserverbutton_Click(object sender, EventArgs e)
         {
+            Variables.EmptyStrings.Add(devicenametxt.Text);
             Variables.EmptyStrings.Add(serveriptxt.Text);
             Variables.EmptyStrings.Add(serverdomaintxt.Text);
             Variables.EmptyStrings.Add(serverusernametxt.Text);
@@ -29,7 +30,7 @@ namespace I_Surveillance
             }
             else
             {
-                Variables.HandleInput("Server", serveriptxt.Text.Trim(), $@"{serverdomaintxt.Text.Trim()}\{serverusernametxt.Text.Trim()}", serverpasswordtxt.Text.Trim(), "");
+                Variables.HandleInput("Server", serveriptxt.Text.Trim(), $@"{serverdomaintxt.Text.Trim()}\{serverusernametxt.Text.Trim()}", serverpasswordtxt.Text.Trim(), "", devicenametxt.Text.Trim());
                 Variables.addServerForm.Close();
                 Variables.checkedbuttons.Remove(Variables.buttonclicked);
             }

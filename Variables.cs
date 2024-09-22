@@ -25,6 +25,7 @@ namespace I_Surveillance
         public static AddServerForm addServerForm;
         public static AddSwitchForm addSwitchForm;
         public static AddRouter addRouterForm;
+        public static string UserPrivilege;
         public static bool checkifvalueisempty()
         {
             foreach (string empty in Variables.EmptyStrings)
@@ -59,13 +60,14 @@ namespace I_Surveillance
             return false;
         }
 
-        private static void addDevices(string type, string ip, string username, string password, string cameralink)
+        private static void addDevices(string type, string ip, string username, string password, string cameralink, string devicename)
         {
             if (PingIpAddress(ip))
             {
                 string query = deviceString(type);
                 query = query.Replace("@ip", ip)
                              .Replace("@username", username)
+                             .Replace("@DeviceName", devicename)
                              .Replace("@password", password);
 
                 if (query.ToLower().Contains("cameralink"))
@@ -106,31 +108,31 @@ namespace I_Surveillance
             switch (type)
             {
                 case "Switch":
-                    str = "INSERT INTO [ISurveillance].[dbo].[Switches] ([SwitchGuid], [SwitchIP], [SwitchUsername], [SwitchPassword]) " +
-                          "VALUES ('" + guid + "', '@ip', '@username', '@password');" +
-                          "INSERT INTO [ISurveillance].[dbo].[Devices] ([DeviceType], [IP], [Username], [Password], [DeviceGUID]) " +
-                          "VALUES ('Switch', '@ip', '@username', '@password', '" + guid + "');";
+                    str = "INSERT INTO [ISurveillance].[dbo].[Switches] ([SwitchGuid], [SwitchIP], [SwitchUsername], [SwitchPassword], [DeviceName]) " +
+                          "VALUES ('" + guid + "', '@ip', '@username', '@password', '@DeviceName');" +
+                          "INSERT INTO [ISurveillance].[dbo].[Devices] ([DeviceType], [IP], [Username], [Password], [DeviceGUID], [DeviceName]) " +
+                          "VALUES ('Switch', '@ip', '@username', '@password', '" + guid + "', '@DeviceName');";
                     break;
 
                 case "Server":
-                    str = "INSERT INTO [ISurveillance].[dbo].[Servers] ([ServerGuid], [ServerIP], [ServerUsername], [ServerPassword]) " +
-                          "VALUES ('" + guid + "', '@ip', '@username', '@password');" +
-                          "INSERT INTO [ISurveillance].[dbo].[Devices] ([DeviceType], [IP], [Username], [Password], [DeviceGUID]) " +
-                          "VALUES ('Server', '@ip', '@username', '@password', '" + guid + "');";
+                    str = "INSERT INTO [ISurveillance].[dbo].[Servers] ([ServerGuid], [ServerIP], [ServerUsername], [ServerPassword], [DeviceName]) " +
+                          "VALUES ('" + guid + "', '@ip', '@username', '@password', '@DeviceName');" +
+                          "INSERT INTO [ISurveillance].[dbo].[Devices] ([DeviceType], [IP], [Username], [Password], [DeviceGUID], [DeviceName]) " +
+                          "VALUES ('Server', '@ip', '@username', '@password', '" + guid + "', '@DeviceName');";
                     break;
 
                 case "Router":
-                    str = "INSERT INTO [ISurveillance].[dbo].[Routers] ([RouterGUID], [RouterIP], [RouterUsername], [RouterPassword]) " +
-                          "VALUES ('" + guid + "', '@ip', '@username', '@password');" +
-                          "INSERT INTO [ISurveillance].[dbo].[Devices] ([DeviceType], [IP], [Username], [Password], [DeviceGUID]) " +
-                          "VALUES ('Router', '@ip', '@username', '@password', '" + guid + "');";
+                    str = "INSERT INTO [ISurveillance].[dbo].[Routers] ([RouterGUID], [RouterIP], [RouterUsername], [RouterPassword], [DeviceName]) " +
+                          "VALUES ('" + guid + "', '@ip', '@username', '@password', '@DeviceName');" +
+                          "INSERT INTO [ISurveillance].[dbo].[Devices] ([DeviceType], [IP], [Username], [Password], [DeviceGUID], [DeviceName]) " +
+                          "VALUES ('Router', '@ip', '@username', '@password', '" + guid + "', '@DeviceName');";
                     break;
 
                 case "Camera":
-                    str = "INSERT INTO [ISurveillance].[dbo].[Cameras] ([CameraGuid], [CameraIP], [CameraUsername], [CameraPassword], [CameraLink]) " +
-                          "VALUES ('" + guid + "', '@ip', '@username', '@password', '@cameralink');" +
-                          "INSERT INTO [ISurveillance].[dbo].[Devices] ([DeviceType], [IP], [Username], [Password], [DeviceGUID]) " +
-                          "VALUES ('Camera', '@ip', '@username', '@password', '" + guid + "');";
+                    str = "INSERT INTO [ISurveillance].[dbo].[Cameras] ([CameraGuid], [CameraIP], [CameraUsername], [CameraPassword], [CameraLink], [DeviceName]) " +
+                          "VALUES ('" + guid + "', '@ip', '@username', '@password', '@cameralink', '@DeviceName');" +
+                          "INSERT INTO [ISurveillance].[dbo].[Devices] ([DeviceType], [IP], [Username], [Password], [DeviceGUID], [DeviceName]) " +
+                          "VALUES ('Camera', '@ip', '@username', '@password', '" + guid + "', '@DeviceName');";
                     break;
 
                 default:
@@ -141,7 +143,7 @@ namespace I_Surveillance
             return str;
         }
 
-        public static void HandleInput(string type, string IP, string username, string password, string cameralink)
+        public static void HandleInput(string type, string IP, string username, string password, string cameralink, string devicename)
         {
             string singleIpPattern = @"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$";
             string rangeIpPattern = @"^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})-(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$";
@@ -149,7 +151,7 @@ namespace I_Surveillance
             if (Regex.IsMatch(IP, singleIpPattern))
             {
                 // Handle single IP address
-                Task.Run(() => addDevices(type, IP, username, password, cameralink));
+                Task.Run(() => addDevices(type, IP, username, password, cameralink, devicename));
             }
             else if (Regex.IsMatch(IP, rangeIpPattern))
             {
@@ -165,7 +167,7 @@ namespace I_Surveillance
                 for (int i = startIpLastOctet; i <= endIpLastOctet; i++)
                 {
                     string ip = baseIp + i;
-                        Task.Run(() => addDevices(type, ip, username, password, cameralink));
+                        Task.Run(() => addDevices(type, ip, username, password, cameralink, devicename));
 
                     count++;
                 }
@@ -224,7 +226,7 @@ namespace I_Surveillance
 
         public static bool AuthenticateUser(string username, string password)
         {
-            string query = "SELECT COUNT(1) FROM [ISurveillance].[dbo].[Users] WHERE [Username] = @Username AND [Password] = @Password";
+            string query = "SELECT [Privilege] FROM [ISurveillance].[dbo].[Users] WHERE [Username] = @Username AND [Password] = @Password";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -237,14 +239,24 @@ namespace I_Surveillance
                     {
                         connection.Open();
 
-                        int count = (int)command.ExecuteScalar();
+                        object result = command.ExecuteScalar();
 
-                        return count > 0;
+                        if (result != null)
+                        {
+                            UserPrivilege = result.ToString(); 
+                            return true; 
+                        }
+                        else
+                        {
+                            UserPrivilege = "None"; 
+                            return false; 
+                        }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"An error occurred: {ex.Message}");
-                        return false;
+                        UserPrivilege = "None"; 
+                        return false; 
                     }
                 }
             }

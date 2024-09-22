@@ -36,11 +36,13 @@ namespace I_Surveillance
             this.label1 = new System.Windows.Forms.Label();
             this.routerusernametxt = new System.Windows.Forms.TextBox();
             this.routeriptxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.devicenametxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // addrouterbutton
             // 
-            this.addrouterbutton.Location = new System.Drawing.Point(12, 159);
+            this.addrouterbutton.Location = new System.Drawing.Point(16, 201);
             this.addrouterbutton.Name = "addrouterbutton";
             this.addrouterbutton.Size = new System.Drawing.Size(515, 23);
             this.addrouterbutton.TabIndex = 40;
@@ -51,7 +53,7 @@ namespace I_Surveillance
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 113);
+            this.label2.Location = new System.Drawing.Point(16, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 15);
             this.label2.TabIndex = 39;
@@ -59,7 +61,7 @@ namespace I_Surveillance
             // 
             // routerpasswordtxt
             // 
-            this.routerpasswordtxt.Location = new System.Drawing.Point(167, 110);
+            this.routerpasswordtxt.Location = new System.Drawing.Point(171, 152);
             this.routerpasswordtxt.Name = "routerpasswordtxt";
             this.routerpasswordtxt.Size = new System.Drawing.Size(360, 23);
             this.routerpasswordtxt.TabIndex = 38;
@@ -67,7 +69,7 @@ namespace I_Surveillance
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 71);
+            this.label8.Location = new System.Drawing.Point(16, 113);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 15);
             this.label8.TabIndex = 37;
@@ -76,7 +78,7 @@ namespace I_Surveillance
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(16, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 15);
             this.label1.TabIndex = 36;
@@ -84,24 +86,42 @@ namespace I_Surveillance
             // 
             // routerusernametxt
             // 
-            this.routerusernametxt.Location = new System.Drawing.Point(167, 68);
+            this.routerusernametxt.Location = new System.Drawing.Point(171, 110);
             this.routerusernametxt.Name = "routerusernametxt";
             this.routerusernametxt.Size = new System.Drawing.Size(360, 23);
             this.routerusernametxt.TabIndex = 35;
             // 
             // routeriptxt
             // 
-            this.routeriptxt.Location = new System.Drawing.Point(167, 21);
+            this.routeriptxt.Location = new System.Drawing.Point(171, 63);
             this.routeriptxt.Name = "routeriptxt";
             this.routeriptxt.Size = new System.Drawing.Size(360, 23);
             this.routeriptxt.TabIndex = 34;
             this.routeriptxt.Text = "XXX.XXX.XXX.XXX OR XXX.XXX.XXX.XXX-XXX.XXX.XXX.XXX";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 15);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Device Name";
+            // 
+            // devicenametxt
+            // 
+            this.devicenametxt.Location = new System.Drawing.Point(171, 19);
+            this.devicenametxt.Name = "devicenametxt";
+            this.devicenametxt.Size = new System.Drawing.Size(360, 23);
+            this.devicenametxt.TabIndex = 41;
+            // 
             // AddRouter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 198);
+            this.ClientSize = new System.Drawing.Size(543, 253);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.devicenametxt);
             this.Controls.Add(this.addrouterbutton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.routerpasswordtxt);
@@ -127,5 +147,7 @@ namespace I_Surveillance
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox routerusernametxt;
         private System.Windows.Forms.TextBox routeriptxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox devicenametxt;
     }
 }

@@ -19,6 +19,7 @@ namespace I_Surveillance
 
         private void addrouterbutton_Click(object sender, EventArgs e)
         {
+            Variables.EmptyStrings.Add(devicenametxt.Text);
             Variables.EmptyStrings.Add(routeriptxt.Text);
             Variables.EmptyStrings.Add(routerusernametxt.Text);
             Variables.EmptyStrings.Add(routerpasswordtxt.Text);
@@ -28,7 +29,7 @@ namespace I_Surveillance
             }
             else
             {
-                Variables.HandleInput("Router", routeriptxt.Text.Trim(), routerusernametxt.Text.Trim(), routerpasswordtxt.Text.Trim(), "");
+                Variables.HandleInput("Router", routeriptxt.Text.Trim(), routerusernametxt.Text.Trim(), routerpasswordtxt.Text.Trim(), "", devicenametxt.Text.Trim());
                 Variables.addRouterForm.Close();
                 Variables.checkedbuttons.Remove(Variables.buttonclicked);
             }
