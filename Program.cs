@@ -14,11 +14,13 @@ namespace I_Surveillance
         [STAThread]
         static void Main()
         {
+            
             ConnectToDB();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserLoginForm());
+            //Application.Run(new UserLoginForm());
+            Application.Run(new testingform());
         }
         static void ConnectToDB()
         {

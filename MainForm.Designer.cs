@@ -29,15 +29,15 @@ namespace I_Surveillance
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Servers");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Cameras");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Switches");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Routers");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Network Devices", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Servers");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Cameras");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Switches");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Routers");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Network Devices", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Devices = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -91,8 +91,12 @@ namespace I_Surveillance
             this.CameraGUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Configuration = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cpulbl = new System.Windows.Forms.Label();
+            this.ramlbl = new System.Windows.Forms.Label();
+            this.disklbl = new System.Windows.Forms.Label();
+            this.netlbl = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Devices.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -123,10 +127,10 @@ namespace I_Surveillance
             this.tabControl1.Controls.Add(this.Monitoring);
             this.tabControl1.Controls.Add(this.Configuration);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(3, 64);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1083, 707);
+            this.tabControl1.Size = new System.Drawing.Size(1077, 658);
             this.tabControl1.TabIndex = 0;
             // 
             // Devices
@@ -138,7 +142,7 @@ namespace I_Surveillance
             this.Devices.Location = new System.Drawing.Point(4, 24);
             this.Devices.Name = "Devices";
             this.Devices.Padding = new System.Windows.Forms.Padding(3);
-            this.Devices.Size = new System.Drawing.Size(1075, 679);
+            this.Devices.Size = new System.Drawing.Size(1069, 630);
             this.Devices.TabIndex = 0;
             this.Devices.Text = "Devices";
             // 
@@ -156,7 +160,7 @@ namespace I_Surveillance
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.076175F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.92383F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1065, 669);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1059, 620);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -167,11 +171,11 @@ namespace I_Surveillance
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 59);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 54);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1059, 555);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1053, 511);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dataGridView1
@@ -193,7 +197,7 @@ namespace I_Surveillance
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1053, 549);
+            this.dataGridView1.Size = new System.Drawing.Size(1047, 505);
             this.dataGridView1.TabIndex = 0;
             // 
             // DeviceType
@@ -240,13 +244,13 @@ namespace I_Surveillance
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1059, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1053, 45);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // addcamera
             // 
             this.addcamera.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addcamera.Location = new System.Drawing.Point(58, 12);
+            this.addcamera.Location = new System.Drawing.Point(58, 10);
             this.addcamera.Name = "addcamera";
             this.addcamera.Size = new System.Drawing.Size(147, 25);
             this.addcamera.TabIndex = 7;
@@ -257,7 +261,7 @@ namespace I_Surveillance
             // addserver
             // 
             this.addserver.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addserver.Location = new System.Drawing.Point(324, 12);
+            this.addserver.Location = new System.Drawing.Point(322, 10);
             this.addserver.Name = "addserver";
             this.addserver.Size = new System.Drawing.Size(144, 25);
             this.addserver.TabIndex = 8;
@@ -268,7 +272,7 @@ namespace I_Surveillance
             // addswitch
             // 
             this.addswitch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addswitch.Location = new System.Drawing.Point(590, 12);
+            this.addswitch.Location = new System.Drawing.Point(587, 10);
             this.addswitch.Name = "addswitch";
             this.addswitch.Size = new System.Drawing.Size(140, 25);
             this.addswitch.TabIndex = 9;
@@ -279,7 +283,7 @@ namespace I_Surveillance
             // addrouter
             // 
             this.addrouter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addrouter.Location = new System.Drawing.Point(853, 12);
+            this.addrouter.Location = new System.Drawing.Point(849, 10);
             this.addrouter.Name = "addrouter";
             this.addrouter.Size = new System.Drawing.Size(144, 25);
             this.addrouter.TabIndex = 10;
@@ -295,18 +299,18 @@ namespace I_Surveillance
             this.tableLayoutPanel4.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.progressBar1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 620);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 571);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1059, 46);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1053, 46);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(924, 15);
+            this.label1.Location = new System.Drawing.Point(918, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 15);
             this.label1.TabIndex = 7;
@@ -317,7 +321,7 @@ namespace I_Surveillance
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.progressBar1.Location = new System.Drawing.Point(3, 3);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(880, 40);
+            this.progressBar1.Size = new System.Drawing.Size(874, 40);
             this.progressBar1.TabIndex = 8;
             // 
             // Monitoring
@@ -326,7 +330,7 @@ namespace I_Surveillance
             this.Monitoring.Location = new System.Drawing.Point(4, 24);
             this.Monitoring.Name = "Monitoring";
             this.Monitoring.Padding = new System.Windows.Forms.Padding(3);
-            this.Monitoring.Size = new System.Drawing.Size(1075, 679);
+            this.Monitoring.Size = new System.Drawing.Size(1069, 630);
             this.Monitoring.TabIndex = 1;
             this.Monitoring.Text = "Monitoring";
             this.Monitoring.UseVisualStyleBackColor = true;
@@ -345,16 +349,16 @@ namespace I_Surveillance
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1069, 673);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1063, 624);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // devicemonitoringgrpbx
             // 
             this.devicemonitoringgrpbx.Controls.Add(this.serverpanel);
             this.devicemonitoringgrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.devicemonitoringgrpbx.Location = new System.Drawing.Point(401, 3);
+            this.devicemonitoringgrpbx.Location = new System.Drawing.Point(395, 3);
             this.devicemonitoringgrpbx.Name = "devicemonitoringgrpbx";
-            this.devicemonitoringgrpbx.Size = new System.Drawing.Size(665, 667);
+            this.devicemonitoringgrpbx.Size = new System.Drawing.Size(665, 618);
             this.devicemonitoringgrpbx.TabIndex = 1;
             this.devicemonitoringgrpbx.TabStop = false;
             this.devicemonitoringgrpbx.Text = "Device Monitoring";
@@ -365,7 +369,7 @@ namespace I_Surveillance
             this.serverpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serverpanel.Location = new System.Drawing.Point(3, 19);
             this.serverpanel.Name = "serverpanel";
-            this.serverpanel.Size = new System.Drawing.Size(659, 645);
+            this.serverpanel.Size = new System.Drawing.Size(659, 596);
             this.serverpanel.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -382,15 +386,15 @@ namespace I_Surveillance
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(659, 645);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(659, 596);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // groupBox4
             // 
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(332, 325);
+            this.groupBox4.Location = new System.Drawing.Point(332, 301);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(324, 317);
+            this.groupBox4.Size = new System.Drawing.Size(324, 292);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
@@ -402,7 +406,7 @@ namespace I_Surveillance
             this.configurationgrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.configurationgrpbx.Location = new System.Drawing.Point(3, 3);
             this.configurationgrpbx.Name = "configurationgrpbx";
-            this.configurationgrpbx.Size = new System.Drawing.Size(653, 316);
+            this.configurationgrpbx.Size = new System.Drawing.Size(653, 292);
             this.configurationgrpbx.TabIndex = 1;
             this.configurationgrpbx.TabStop = false;
             this.configurationgrpbx.Text = "Configuration";
@@ -420,7 +424,7 @@ namespace I_Surveillance
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 236F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(647, 294);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(647, 270);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // txtpowershellcommand
@@ -430,7 +434,7 @@ namespace I_Surveillance
             this.txtpowershellcommand.ForeColor = System.Drawing.SystemColors.Window;
             this.txtpowershellcommand.Location = new System.Drawing.Point(3, 3);
             this.txtpowershellcommand.Name = "txtpowershellcommand";
-            this.txtpowershellcommand.Size = new System.Drawing.Size(641, 52);
+            this.txtpowershellcommand.Size = new System.Drawing.Size(641, 28);
             this.txtpowershellcommand.TabIndex = 0;
             this.txtpowershellcommand.Text = "";
             this.txtpowershellcommand.TextChanged += new System.EventHandler(this.txtpowershell_TextChanged);
@@ -441,7 +445,7 @@ namespace I_Surveillance
             this.txtpowershellresponse.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.txtpowershellresponse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtpowershellresponse.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtpowershellresponse.Location = new System.Drawing.Point(3, 61);
+            this.txtpowershellresponse.Location = new System.Drawing.Point(3, 37);
             this.txtpowershellresponse.Name = "txtpowershellresponse";
             this.txtpowershellresponse.ReadOnly = true;
             this.txtpowershellresponse.Size = new System.Drawing.Size(641, 230);
@@ -450,6 +454,10 @@ namespace I_Surveillance
             // 
             // monitoringgrpbx
             // 
+            this.monitoringgrpbx.Controls.Add(this.netlbl);
+            this.monitoringgrpbx.Controls.Add(this.disklbl);
+            this.monitoringgrpbx.Controls.Add(this.ramlbl);
+            this.monitoringgrpbx.Controls.Add(this.cpulbl);
             this.monitoringgrpbx.Controls.Add(this.diskusageprogressbar);
             this.monitoringgrpbx.Controls.Add(this.networkusageprogressbar);
             this.monitoringgrpbx.Controls.Add(this.label5);
@@ -459,9 +467,9 @@ namespace I_Surveillance
             this.monitoringgrpbx.Controls.Add(this.label3);
             this.monitoringgrpbx.Controls.Add(this.label2);
             this.monitoringgrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monitoringgrpbx.Location = new System.Drawing.Point(3, 325);
+            this.monitoringgrpbx.Location = new System.Drawing.Point(3, 301);
             this.monitoringgrpbx.Name = "monitoringgrpbx";
-            this.monitoringgrpbx.Size = new System.Drawing.Size(323, 317);
+            this.monitoringgrpbx.Size = new System.Drawing.Size(323, 292);
             this.monitoringgrpbx.TabIndex = 2;
             this.monitoringgrpbx.TabStop = false;
             this.monitoringgrpbx.Text = "Monitoring";
@@ -469,15 +477,13 @@ namespace I_Surveillance
             // diskusageprogressbar
             // 
             this.diskusageprogressbar.Location = new System.Drawing.Point(151, 104);
-            this.diskusageprogressbar.Maximum = 10000;
             this.diskusageprogressbar.Name = "diskusageprogressbar";
             this.diskusageprogressbar.Size = new System.Drawing.Size(166, 23);
             this.diskusageprogressbar.TabIndex = 7;
             // 
             // networkusageprogressbar
             // 
-            this.networkusageprogressbar.Location = new System.Drawing.Point(151, 137);
-            this.networkusageprogressbar.Maximum = 1100;
+            this.networkusageprogressbar.Location = new System.Drawing.Point(151, 145);
             this.networkusageprogressbar.Name = "networkusageprogressbar";
             this.networkusageprogressbar.Size = new System.Drawing.Size(166, 23);
             this.networkusageprogressbar.TabIndex = 6;
@@ -503,7 +509,6 @@ namespace I_Surveillance
             // memoryusageprogressbar
             // 
             this.memoryusageprogressbar.Location = new System.Drawing.Point(151, 67);
-            this.memoryusageprogressbar.Maximum = 1100;
             this.memoryusageprogressbar.Name = "memoryusageprogressbar";
             this.memoryusageprogressbar.Size = new System.Drawing.Size(166, 23);
             this.memoryusageprogressbar.TabIndex = 3;
@@ -511,7 +516,6 @@ namespace I_Surveillance
             // cpuusageprogressbar
             // 
             this.cpuusageprogressbar.Location = new System.Drawing.Point(151, 30);
-            this.cpuusageprogressbar.Maximum = 10;
             this.cpuusageprogressbar.Name = "cpuusageprogressbar";
             this.cpuusageprogressbar.Size = new System.Drawing.Size(166, 23);
             this.cpuusageprogressbar.TabIndex = 2;
@@ -540,7 +544,7 @@ namespace I_Surveillance
             this.devicetypegrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.devicetypegrpbx.Location = new System.Drawing.Point(3, 3);
             this.devicetypegrpbx.Name = "devicetypegrpbx";
-            this.devicetypegrpbx.Size = new System.Drawing.Size(183, 667);
+            this.devicetypegrpbx.Size = new System.Drawing.Size(177, 618);
             this.devicetypegrpbx.TabIndex = 0;
             this.devicetypegrpbx.TabStop = false;
             this.devicetypegrpbx.Text = "Device Type";
@@ -551,7 +555,7 @@ namespace I_Surveillance
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(177, 645);
+            this.panel1.Size = new System.Drawing.Size(171, 596);
             this.panel1.TabIndex = 0;
             // 
             // treeView1
@@ -560,24 +564,24 @@ namespace I_Surveillance
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            treeNode6.ForeColor = System.Drawing.Color.Navy;
-            treeNode6.Name = "serversnode";
-            treeNode6.Text = "Servers";
-            treeNode7.ForeColor = System.Drawing.Color.Navy;
-            treeNode7.Name = "camerasnode";
-            treeNode7.Text = "Cameras";
-            treeNode8.ForeColor = System.Drawing.Color.Navy;
-            treeNode8.Name = "switchnode";
-            treeNode8.Text = "Switches";
-            treeNode9.ForeColor = System.Drawing.Color.Navy;
-            treeNode9.Name = "routersnode";
-            treeNode9.Text = "Routers";
-            treeNode10.ForeColor = System.Drawing.Color.Blue;
-            treeNode10.Name = "Node0";
-            treeNode10.Text = "Network Devices";
+            treeNode1.ForeColor = System.Drawing.Color.Navy;
+            treeNode1.Name = "serversnode";
+            treeNode1.Text = "Servers";
+            treeNode2.ForeColor = System.Drawing.Color.Navy;
+            treeNode2.Name = "camerasnode";
+            treeNode2.Text = "Cameras";
+            treeNode3.ForeColor = System.Drawing.Color.Navy;
+            treeNode3.Name = "switchnode";
+            treeNode3.Text = "Switches";
+            treeNode4.ForeColor = System.Drawing.Color.Navy;
+            treeNode4.Name = "routersnode";
+            treeNode4.Text = "Routers";
+            treeNode5.ForeColor = System.Drawing.Color.Blue;
+            treeNode5.Name = "Node0";
+            treeNode5.Text = "Network Devices";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
-            this.treeView1.Size = new System.Drawing.Size(177, 645);
+            treeNode5});
+            this.treeView1.Size = new System.Drawing.Size(171, 596);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -585,9 +589,9 @@ namespace I_Surveillance
             // 
             this.devicelistgrpbx.Controls.Add(this.panel2);
             this.devicelistgrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.devicelistgrpbx.Location = new System.Drawing.Point(192, 3);
+            this.devicelistgrpbx.Location = new System.Drawing.Point(186, 3);
             this.devicelistgrpbx.Name = "devicelistgrpbx";
-            this.devicelistgrpbx.Size = new System.Drawing.Size(203, 667);
+            this.devicelistgrpbx.Size = new System.Drawing.Size(203, 618);
             this.devicelistgrpbx.TabIndex = 1;
             this.devicelistgrpbx.TabStop = false;
             this.devicelistgrpbx.Text = "Device List";
@@ -598,7 +602,7 @@ namespace I_Surveillance
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 19);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(197, 645);
+            this.panel2.Size = new System.Drawing.Size(197, 596);
             this.panel2.TabIndex = 0;
             // 
             // devicelistdtgview
@@ -627,7 +631,7 @@ namespace I_Surveillance
             this.devicelistdtgview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.devicelistdtgview.RowHeadersVisible = false;
             this.devicelistdtgview.RowTemplate.Height = 25;
-            this.devicelistdtgview.Size = new System.Drawing.Size(197, 645);
+            this.devicelistdtgview.Size = new System.Drawing.Size(197, 596);
             this.devicelistdtgview.TabIndex = 0;
             this.devicelistdtgview.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.devicelistdtgview_CellContentDoubleClick);
             // 
@@ -700,7 +704,7 @@ namespace I_Surveillance
             this.Configuration.Location = new System.Drawing.Point(4, 24);
             this.Configuration.Name = "Configuration";
             this.Configuration.Padding = new System.Windows.Forms.Padding(3);
-            this.Configuration.Size = new System.Drawing.Size(1075, 679);
+            this.Configuration.Size = new System.Drawing.Size(1069, 630);
             this.Configuration.TabIndex = 2;
             this.Configuration.Text = "Configuration";
             this.Configuration.UseVisualStyleBackColor = true;
@@ -717,35 +721,67 @@ namespace I_Surveillance
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1069, 673);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1063, 624);
             this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(534, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(526, 618);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "IIS Configuration";
             // 
             // groupBox1
             // 
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(528, 667);
+            this.groupBox1.Size = new System.Drawing.Size(525, 618);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SQL Configuration";
             // 
-            // groupBox2
+            // cpulbl
             // 
-            this.groupBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(537, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(529, 667);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "IIS Configuration";
+            this.cpulbl.AutoSize = true;
+            this.cpulbl.Location = new System.Drawing.Point(107, 37);
+            this.cpulbl.Name = "cpulbl";
+            this.cpulbl.Size = new System.Drawing.Size(0, 15);
+            this.cpulbl.TabIndex = 8;
+            // 
+            // ramlbl
+            // 
+            this.ramlbl.AutoSize = true;
+            this.ramlbl.Location = new System.Drawing.Point(107, 75);
+            this.ramlbl.Name = "ramlbl";
+            this.ramlbl.Size = new System.Drawing.Size(0, 15);
+            this.ramlbl.TabIndex = 9;
+            // 
+            // disklbl
+            // 
+            this.disklbl.AutoSize = true;
+            this.disklbl.Location = new System.Drawing.Point(107, 112);
+            this.disklbl.Name = "disklbl";
+            this.disklbl.Size = new System.Drawing.Size(0, 15);
+            this.disklbl.TabIndex = 10;
+            // 
+            // netlbl
+            // 
+            this.netlbl.AutoSize = true;
+            this.netlbl.Location = new System.Drawing.Point(107, 145);
+            this.netlbl.Name = "netlbl";
+            this.netlbl.Size = new System.Drawing.Size(0, 15);
+            this.netlbl.TabIndex = 11;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 707);
+            this.ClientSize = new System.Drawing.Size(1083, 725);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "I-Surveillance";
@@ -836,6 +872,10 @@ namespace I_Surveillance
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label netlbl;
+        private System.Windows.Forms.Label disklbl;
+        private System.Windows.Forms.Label ramlbl;
+        private System.Windows.Forms.Label cpulbl;
     }
 }
 
