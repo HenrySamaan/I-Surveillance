@@ -19,8 +19,8 @@ namespace I_Surveillance
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new UserLoginForm());
-            Application.Run(new testingform());
+            Application.Run(new UserLoginForm());
+          // Application.Run(new testingform());
         }
         static void ConnectToDB()
         {
