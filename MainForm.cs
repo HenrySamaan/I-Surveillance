@@ -190,7 +190,8 @@ namespace I_Surveillance
             initializeWebView(fullScreen.fullscreenpanel, ip, username, password);
             fullScreen.Show();
         }
-        private void PasteUsernameIntoTextBox()
+
+        private void pasteusernamebtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -218,6 +219,15 @@ namespace I_Surveillance
             }
         }
 
+        private void minimizebtn_Click(object sender, EventArgs e)
+        {
+            initializeWebView(this.deviceaccessgrpbx, ip, username, password);
+        }
+
+        public void returntonormal()
+        {
+            initializeWebView(this.deviceaccessgrpbx, ip, username, password);
+        }
         public void initializeWebView(Control control, string address, string username, string password)
         {
             WebView2 webView = new WebView2
@@ -303,6 +313,14 @@ namespace I_Surveillance
                             username = reader["Username"]?.ToString() ?? string.Empty;
                             password = reader["Password"]?.ToString() ?? string.Empty;
                             deviceName = reader["DeviceName"]?.ToString() ?? string.Empty;
+                            if (!string.IsNullOrEmpty(username))
+                            {
+                                pasteusernamebtn.ForeColor = Color.Green;
+                            }
+                            if (!string.IsNullOrEmpty(password))
+                            {
+                                pastepasswordbtn.ForeColor = Color.Green;
+                            }
 
                             if (deviceType == "Switch")
                             {

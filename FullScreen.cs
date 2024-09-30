@@ -28,7 +28,7 @@ namespace I_Surveillance
         private void FullScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
             fullscreenpanel.Controls.Clear();
-           // _MAINFORM.returnviews();
+            _MAINFORM.returntonormal();
         }
         //public Panel MainPanel
         //{

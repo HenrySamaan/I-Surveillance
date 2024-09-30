@@ -380,6 +380,7 @@ namespace I_Surveillance
             this.minimizebtn.TabIndex = 6;
             this.minimizebtn.Text = "Minimize";
             this.minimizebtn.UseVisualStyleBackColor = true;
+            this.minimizebtn.Click += new System.EventHandler(this.minimizebtn_Click);
             // 
             // pasteusernamebtn
             // 
@@ -390,6 +391,7 @@ namespace I_Surveillance
             this.pasteusernamebtn.TabIndex = 4;
             this.pasteusernamebtn.Text = "Username";
             this.pasteusernamebtn.UseVisualStyleBackColor = true;
+            this.pasteusernamebtn.Click += new System.EventHandler(this.pasteusernamebtn_Click);
             // 
             // deviceaccessgrpbx
             // 
