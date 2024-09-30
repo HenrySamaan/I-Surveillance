@@ -74,7 +74,7 @@ namespace I_Surveillance
                 rdpProcess.StartInfo.FileName = "mstsc";
                 rdpProcess.StartInfo.Arguments = $"/v:{serverIP} /f";
                 rdpProcess.Start();
-
+                EmbedRDPWindow();
             }
             catch (Exception ex)
             {

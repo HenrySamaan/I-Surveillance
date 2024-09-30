@@ -27,11 +27,23 @@ namespace I_Surveillance
         private static string remoteServerIp = "", Interface;
         private Thread monitoringThread;
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
-        private static string ip = "", username = "", password = "";
+        private static string ip = "", username = "", password = "", devtype = "";
 
         private Process powerShellProcess;
         private StreamWriter powerShellInput;
         private Thread powerShellOutputThread;
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+        [DllImport("user32.dll")]
+        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        private const uint SWP_NOZORDER = 0x0004;
+        private const uint SWP_SHOWWINDOW = 0x0040;
 
         public MainForm()
         {
@@ -63,7 +75,47 @@ namespace I_Surveillance
 
         }
 
+        private void EmbedRDPWindow()
+        {
+            IntPtr rdpWindowHandle = FindWindow("TscShellContainerClass", null);
 
+            // Check if the window handle is valid
+            if (rdpWindowHandle != IntPtr.Zero)
+            {
+                // Set the parent of the RDP window to the panel
+                SetParent(rdpWindowHandle, deviceaccessgrpbx.Handle);
+
+                // Resize and reposition the embedded RDP window
+                SetWindowPos(rdpWindowHandle, IntPtr.Zero, 0, 0, deviceaccessgrpbx.Width, deviceaccessgrpbx.Height, SWP_NOZORDER | SWP_SHOWWINDOW);
+            }
+            else
+            {
+                EmbedRDPWindow();
+            }
+        }
+
+        private void StartRdpSession(string serverIP, string username, string password)
+        {
+            try
+            {
+                System.Diagnostics.Process cmdKeyProcess = new System.Diagnostics.Process();
+                cmdKeyProcess.StartInfo.FileName = "cmd.exe";
+                cmdKeyProcess.StartInfo.Arguments = $"/C cmdkey /generic:TERMSRV/{serverIP} /user:{username} /pass:{password}";
+                cmdKeyProcess.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                cmdKeyProcess.Start();
+                cmdKeyProcess.WaitForExit();
+
+                System.Diagnostics.Process rdpProcess = new System.Diagnostics.Process();
+                rdpProcess.StartInfo.FileName = "mstsc";
+                rdpProcess.StartInfo.Arguments = $"/v:{serverIP} /f";
+                rdpProcess.Start();
+                EmbedRDPWindow();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error connecting to RDP: " + ex.Message);
+            }
+        }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -184,11 +236,22 @@ namespace I_Surveillance
 
         private void fullscreenbtn_Click(object sender, EventArgs e)
         {
-            FullScreen fullScreen = new FullScreen(this);
-            fullScreen.FormClosed += (s, e) => fullScreen.Dispose();
-            fullScreen.AddControlToPanel(deviceaccessgrpbx);
-            initializeWebView(fullScreen.fullscreenpanel, ip, username, password);
-            fullScreen.Show();
+            if (devtype.ToLower() == "server")
+            {
+                FullScreen fullScreen = new FullScreen(this);
+                fullScreen.FormClosed += (s, e) => fullScreen.Dispose();
+                fullScreen.AddControlToPanel(deviceaccessgrpbx);
+                fullScreen.Show();
+            }
+            else
+            {
+                FullScreen fullScreen = new FullScreen(this);
+                fullScreen.FormClosed += (s, e) => fullScreen.Dispose();
+                fullScreen.AddControlToPanel(deviceaccessgrpbx);
+                initializeWebView(fullScreen.fullscreenpanel, ip, username, password);
+                fullScreen.Show();
+            }
+
         }
 
         private void pasteusernamebtn_Click(object sender, EventArgs e)
@@ -331,6 +394,7 @@ namespace I_Surveillance
                             {
                                 serverGUID = reader["ServerGUID"]?.ToString() ?? string.Empty;
                                 ServerConnection.loadserverscontrol(username, password, ip);
+                                StartRdpSession(ip, username, password);
                                 return;
                             }
                             else if (deviceType == "Router")
@@ -379,6 +443,7 @@ namespace I_Surveillance
                 DataGridViewRow selectedRow = serverlistdtgview.Rows[e.RowIndex];
                 var deviceguid = selectedRow.Cells["DeviceGUID"].Value.ToString();
                 var devicetype = selectedRow.Cells["DevicType"].Value.ToString();
+                devtype = devicetype;
                 GetDeviceInfo(deviceguid, devicetype);
 
             }
