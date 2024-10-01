@@ -208,7 +208,6 @@ namespace I_Surveillance
                     {
                         adapter.Fill(dataTable);
                     }
-
                 }
                 catch (Exception ex)
                 {

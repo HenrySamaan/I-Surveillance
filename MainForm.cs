@@ -44,7 +44,12 @@ namespace I_Surveillance
 
         private const uint SWP_NOZORDER = 0x0004;
         private const uint SWP_SHOWWINDOW = 0x0040;
+        // Import necessary Win32 API functions
+        [DllImport("user32.dll", SetLastError = true)]
 
+        private static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+        private const uint WM_CLOSE = 0x0010;
         public MainForm()
         {
             InitializeComponent();
@@ -61,36 +66,69 @@ namespace I_Surveillance
             //    TextShade.WHITE            // Text shade
             //);
         }
+        private void startthread()
+        {
+            Thread myThread = new Thread(new ThreadStart(LoadDataIntoDataGridView));
+            myThread.IsBackground = true;
+            myThread.Start();
+        }
+        private void LoadDataIntoDataGridView()
+        {
+            while (true)
+            {
+                try
+                {
+                    dataGridView1.DataSource = Variables.dataTable;
+                }
+                catch
+                {
 
+                }
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             if (Variables.UserPrivilege == "Administrator")
             {
                 Variables.LoadDevicesIntoDataGridView();
+                startthread();
             }
             else
             {
                 this.tabControl1.TabPages.Remove(Devices);
+                this.tabControl1.TabPages.Remove(Configuration);
             }
-
         }
 
         private void EmbedRDPWindow()
         {
+            System.Threading.Thread.Sleep(3000);
+
             IntPtr rdpWindowHandle = FindWindow("TscShellContainerClass", null);
 
-            // Check if the window handle is valid
             if (rdpWindowHandle != IntPtr.Zero)
             {
-                // Set the parent of the RDP window to the panel
                 SetParent(rdpWindowHandle, deviceaccessgrpbx.Handle);
 
-                // Resize and reposition the embedded RDP window
                 SetWindowPos(rdpWindowHandle, IntPtr.Zero, 0, 0, deviceaccessgrpbx.Width, deviceaccessgrpbx.Height, SWP_NOZORDER | SWP_SHOWWINDOW);
             }
             else
             {
                 EmbedRDPWindow();
+            }
+        }
+        private void CloseRDPWindow()
+        {
+            // Find the RDP window (the class name is typically "TscShellContainerClass")
+            IntPtr rdpWindowHandle = FindWindow("TscShellContainerClass", null);
+
+            // Check if the window handle is valid
+            if (rdpWindowHandle != IntPtr.Zero)
+            {
+                // Post a WM_CLOSE message to close the RDP window
+                PostMessage(rdpWindowHandle, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+                pasteusernamebtn.ForeColor = Color.Red;
+                pastepasswordbtn.ForeColor = Color.Red;
             }
         }
 
@@ -187,22 +225,6 @@ namespace I_Surveillance
         {
                 LoadDevicesNames(e.Node.Text.ToLower().Substring(0, e.Node.Text.ToLower().Length - 1));
         }
-        private void openServerMonitor()
-        {
-
-        }
-        private void openCameraMonitor()
-        {
-
-        }
-        private void openSwitchMonitor()
-        {
-
-        }
-        private void openRouterMonitor()
-        {
-
-        }
 
 
         private void txtpowershell_TextChanged(object sender, EventArgs e)
@@ -210,24 +232,6 @@ namespace I_Surveillance
 
         }
 
-        private void SendCtrlC()
-        {
-            if (powerShellProcess != null && !powerShellProcess.HasExited)
-            {
-                // Simulate sending Ctrl+C to the PowerShell process
-                GenerateCtrlC();
-            }
-        }
-
-        private void GenerateCtrlC()
-        {
-            // Sending Ctrl+C signal to the PowerShell process
-            IntPtr handle = powerShellProcess.MainWindowHandle;
-            if (handle != IntPtr.Zero)
-            {
-                SendMessage(handle, WM_COPYDATA, IntPtr.Zero, IntPtr.Zero);
-            }
-        }
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
@@ -289,7 +293,14 @@ namespace I_Surveillance
 
         public void returntonormal()
         {
-            initializeWebView(this.deviceaccessgrpbx, ip, username, password);
+            if (devtype.ToLower() == "server")
+            {
+                CloseRDPWindow();
+            }
+            else
+            {
+                initializeWebView(this.deviceaccessgrpbx, ip, username, password);
+            }
         }
         public void initializeWebView(Control control, string address, string username, string password)
         {

@@ -316,9 +316,9 @@ namespace I_Surveillance
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 671F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel5.Controls.Add(this.devicemonitoringgrpbx, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.devicetypegrpbx, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.devicelistgrpbx, 1, 0);
@@ -326,7 +326,7 @@ namespace I_Surveillance
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1063, 624);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
@@ -334,9 +334,9 @@ namespace I_Surveillance
             // 
             this.devicemonitoringgrpbx.Controls.Add(this.CameraPanel);
             this.devicemonitoringgrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.devicemonitoringgrpbx.Location = new System.Drawing.Point(395, 3);
+            this.devicemonitoringgrpbx.Location = new System.Drawing.Point(321, 3);
             this.devicemonitoringgrpbx.Name = "devicemonitoringgrpbx";
-            this.devicemonitoringgrpbx.Size = new System.Drawing.Size(665, 618);
+            this.devicemonitoringgrpbx.Size = new System.Drawing.Size(739, 618);
             this.devicemonitoringgrpbx.TabIndex = 1;
             this.devicemonitoringgrpbx.TabStop = false;
             this.devicemonitoringgrpbx.Text = "Device Monitoring";
@@ -347,7 +347,7 @@ namespace I_Surveillance
             this.CameraPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CameraPanel.Location = new System.Drawing.Point(3, 19);
             this.CameraPanel.Name = "CameraPanel";
-            this.CameraPanel.Size = new System.Drawing.Size(659, 596);
+            this.CameraPanel.Size = new System.Drawing.Size(733, 596);
             this.CameraPanel.TabIndex = 1;
             // 
             // cameramonitoringpanel
@@ -368,15 +368,15 @@ namespace I_Surveillance
             this.cameramonitoringpanel.RowCount = 2;
             this.cameramonitoringpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95F));
             this.cameramonitoringpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.cameramonitoringpanel.Size = new System.Drawing.Size(659, 596);
+            this.cameramonitoringpanel.Size = new System.Drawing.Size(733, 596);
             this.cameramonitoringpanel.TabIndex = 0;
             // 
             // minimizebtn
             // 
             this.minimizebtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minimizebtn.Location = new System.Drawing.Point(167, 569);
+            this.minimizebtn.Location = new System.Drawing.Point(186, 569);
             this.minimizebtn.Name = "minimizebtn";
-            this.minimizebtn.Size = new System.Drawing.Size(158, 24);
+            this.minimizebtn.Size = new System.Drawing.Size(177, 24);
             this.minimizebtn.TabIndex = 6;
             this.minimizebtn.Text = "Minimize";
             this.minimizebtn.UseVisualStyleBackColor = true;
@@ -385,9 +385,9 @@ namespace I_Surveillance
             // pasteusernamebtn
             // 
             this.pasteusernamebtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pasteusernamebtn.Location = new System.Drawing.Point(331, 569);
+            this.pasteusernamebtn.Location = new System.Drawing.Point(369, 569);
             this.pasteusernamebtn.Name = "pasteusernamebtn";
-            this.pasteusernamebtn.Size = new System.Drawing.Size(158, 24);
+            this.pasteusernamebtn.Size = new System.Drawing.Size(177, 24);
             this.pasteusernamebtn.TabIndex = 4;
             this.pasteusernamebtn.Text = "Username";
             this.pasteusernamebtn.UseVisualStyleBackColor = true;
@@ -399,7 +399,7 @@ namespace I_Surveillance
             this.deviceaccessgrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deviceaccessgrpbx.Location = new System.Drawing.Point(3, 3);
             this.deviceaccessgrpbx.Name = "deviceaccessgrpbx";
-            this.deviceaccessgrpbx.Size = new System.Drawing.Size(653, 560);
+            this.deviceaccessgrpbx.Size = new System.Drawing.Size(727, 560);
             this.deviceaccessgrpbx.TabIndex = 2;
             this.deviceaccessgrpbx.TabStop = false;
             this.deviceaccessgrpbx.Text = "Device Access";
@@ -409,7 +409,7 @@ namespace I_Surveillance
             this.fullscreenbtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fullscreenbtn.Location = new System.Drawing.Point(3, 569);
             this.fullscreenbtn.Name = "fullscreenbtn";
-            this.fullscreenbtn.Size = new System.Drawing.Size(158, 24);
+            this.fullscreenbtn.Size = new System.Drawing.Size(177, 24);
             this.fullscreenbtn.TabIndex = 3;
             this.fullscreenbtn.Text = "Maximize";
             this.fullscreenbtn.UseVisualStyleBackColor = true;
@@ -418,9 +418,9 @@ namespace I_Surveillance
             // pastepasswordbtn
             // 
             this.pastepasswordbtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pastepasswordbtn.Location = new System.Drawing.Point(495, 569);
+            this.pastepasswordbtn.Location = new System.Drawing.Point(552, 569);
             this.pastepasswordbtn.Name = "pastepasswordbtn";
-            this.pastepasswordbtn.Size = new System.Drawing.Size(161, 24);
+            this.pastepasswordbtn.Size = new System.Drawing.Size(178, 24);
             this.pastepasswordbtn.TabIndex = 5;
             this.pastepasswordbtn.Text = "Password";
             this.pastepasswordbtn.UseVisualStyleBackColor = true;
@@ -432,7 +432,7 @@ namespace I_Surveillance
             this.devicetypegrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.devicetypegrpbx.Location = new System.Drawing.Point(3, 3);
             this.devicetypegrpbx.Name = "devicetypegrpbx";
-            this.devicetypegrpbx.Size = new System.Drawing.Size(177, 618);
+            this.devicetypegrpbx.Size = new System.Drawing.Size(153, 618);
             this.devicetypegrpbx.TabIndex = 0;
             this.devicetypegrpbx.TabStop = false;
             this.devicetypegrpbx.Text = "Device Type";
@@ -443,7 +443,7 @@ namespace I_Surveillance
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 596);
+            this.panel1.Size = new System.Drawing.Size(147, 596);
             this.panel1.TabIndex = 0;
             // 
             // treeView1
@@ -469,7 +469,7 @@ namespace I_Surveillance
             treeNode5.Text = "Network Devices";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode5});
-            this.treeView1.Size = new System.Drawing.Size(171, 596);
+            this.treeView1.Size = new System.Drawing.Size(147, 596);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -477,9 +477,9 @@ namespace I_Surveillance
             // 
             this.devicelistgrpbx.Controls.Add(this.serverspanel);
             this.devicelistgrpbx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.devicelistgrpbx.Location = new System.Drawing.Point(186, 3);
+            this.devicelistgrpbx.Location = new System.Drawing.Point(162, 3);
             this.devicelistgrpbx.Name = "devicelistgrpbx";
-            this.devicelistgrpbx.Size = new System.Drawing.Size(203, 618);
+            this.devicelistgrpbx.Size = new System.Drawing.Size(153, 618);
             this.devicelistgrpbx.TabIndex = 1;
             this.devicelistgrpbx.TabStop = false;
             this.devicelistgrpbx.Text = "Device List";
@@ -490,7 +490,7 @@ namespace I_Surveillance
             this.serverspanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.serverspanel.Location = new System.Drawing.Point(3, 19);
             this.serverspanel.Name = "serverspanel";
-            this.serverspanel.Size = new System.Drawing.Size(197, 596);
+            this.serverspanel.Size = new System.Drawing.Size(147, 596);
             this.serverspanel.TabIndex = 0;
             // 
             // serverlistdtgview
@@ -513,7 +513,7 @@ namespace I_Surveillance
             this.serverlistdtgview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.serverlistdtgview.RowHeadersVisible = false;
             this.serverlistdtgview.RowTemplate.Height = 25;
-            this.serverlistdtgview.Size = new System.Drawing.Size(197, 596);
+            this.serverlistdtgview.Size = new System.Drawing.Size(147, 596);
             this.serverlistdtgview.TabIndex = 0;
             this.serverlistdtgview.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.devicelistdtgview_CellContentDoubleClick);
             // 
@@ -633,7 +633,7 @@ namespace I_Surveillance
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button addcamera;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button addserver;
         private System.Windows.Forms.Button addswitch;
